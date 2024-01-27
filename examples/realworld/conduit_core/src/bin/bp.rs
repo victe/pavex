@@ -10,12 +10,11 @@ use std::error::Error;
 /// the application.
 fn main() -> Result<(), Box<dyn Error>> {
     let generated_dir = generated_pkg_manifest_path()?.parent().unwrap().into();
-    Client::new()
-        // This customization is only needed because the example lives in the same
-        // repository of Pavex itself. In a real-world scenario, you would just
-        // use the binary path.
-        .pavex_cli_path("../../libs/target/release/pavex".into())
+    if let Err(e) = Client::new()
         .generate(blueprint(), generated_dir)
-        .execute()?;
+        .execute() {
+        eprintln!("{e}");
+        std::process::exit(1);
+    }
     Ok(())
 }
