@@ -54,7 +54,7 @@ cargo px build
 ## Run the application
 
 ```bash
-APP_PROFILE=dev cargo px run --bin api
+APP_PROFILE=dev cargo px run
 ```
 
 ## Configuration
@@ -66,7 +66,7 @@ Environment-specific configuration files can be used to override or supply addit
 You must specify the app profile that you want to use by setting the `APP_PROFILE` environment variable to either `dev`, `test` or `prod`; e.g.:
 
 ```bash
-APP_PROFILE=prod cargo px run --bin api
+APP_PROFILE=prod cargo px run
 ```
 
 All configurable parameters are listed in `conduit_core/src/configuration.rs`.

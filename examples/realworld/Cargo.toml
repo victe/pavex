@@ -1,3 +1,7 @@
 [workspace]
 members = ["api_server", "api_server_sdk", "conduit_core"]
+# By setting `api_server` as the default member, `cargo run` will default to running the server binary
+# when executed from the root of the realworld example workspace.
+# Otherwise, you would have to use `cargo run --bin api` to run the server binary.
+default-members = ["api_server"]
 resolver = "2"
